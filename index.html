@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Kajal & Jagjyot | Wedding Celebrations</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #FFFDF9;
+      --card-bg: #FFFFFF;
+      --card-border: #F0E2D8;
+      --accent-rose: #C57D87;
+      --accent-gold: #C99A45;
+      --accent-terracotta: #8C404E;
+      --text-main: #3D2B30;
+      --text-muted: #7E6B72;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(180deg, #FFFDFB 0%, #FFF4ED 50%, #FCF8F4 100%);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Ambient Rose Petals & Confetti Canvases */
+    #petals-canvas, #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+    #petals-canvas { z-index: 40; }
+    #confetti-canvas { z-index: 9999; }
+
+    /* 1. TOUCH-TO-OPEN CURTAIN */
+    #welcome-curtain {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #FFF8F4 0%, #F5E5DC 100%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      transition: all 0.9s cubic-bezier(0.7, 0, 0.3, 1);
+    }
+
+    .curtain-arch {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1.5px solid var(--accent-rose);
+      border-radius: 140px 140px 30px 30px;
+      padding: 46px 24px 34px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(140, 64, 78, 0.12), 0 0 30px rgba(197, 125, 135, 0.15);
+    }
+
+    /* Refined Oval Monogram Crest */
+    .monogram-crest {
+      width: 84px;
+      height: 56px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent-gold);
+      outline: 2px dashed rgba(197, 125, 135, 0.4);
+      outline-offset: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Great Vibes', cursive;
+      font-size: 26px;
+      letter-spacing: -1.2px;
+      color: var(--accent-terracotta);
+      background: #FFF5F2;
+      box-shadow: 0 4px 14px rgba(201, 154, 69, 0.2);
+    }
+
+    .pill-tag {
+      display: inline-block;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-terracotta);
+      border: 1px solid var(--accent-rose);
+      background: #FFF2F0;
+      padding: 4px 14px;
+      border-radius: 30px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .splash-guest {
+      font-family: 'Great Vibes', cursive;
+      font-size: 38px;
+      color: var(--accent-terracotta);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .unfold-btn {
+      margin-top: 22px;
+      background: linear-gradient(135deg, #C57D87 0%, #8C404E 100%);
+      border: 1.5px solid var(--accent-gold);
+      color: #FFF;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-family: 'Cinzel', serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(140, 64, 78, 0.3);
+      animation: pulse-btn 2.2s infinite;
+      transition: transform 0.2s;
+    }
+
+    .unfold-btn:active {
+      transform: scale(0.96);
+    }
+
+    @keyframes pulse-btn {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 125, 135, 0.6); }
+      70% { transform: scale(1.04); box-shadow: 0 0 0 14px rgba(197, 125, 135, 0); }
+      100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(197, 125, 135, 0); }
+    }
+
+    /* 2. STICKY TOP DOCK */
+    .top-dock {
+      position: sticky;
+      top: 12px;
+      z-index: 80;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 0 14px;
+    }
+
+    .dock-glass {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 40px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 8px 24px rgba(140, 64, 78, 0.08);
+    }
+
+    .dock-date {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--accent-terracotta);
+      font-weight: 700;
+    }
+
+    .dock-nav {
+      display: flex;
+      gap: 12px;
+    }
+
+    .dock-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .dock-nav a:hover {
+      color: var(--accent-terracotta);
+    }
+
+    .audio-pill {
+      background: #FFF2F0;
+      border: 1px solid var(--card-border);
+      color: var(--accent-terracotta);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* 3. MAIN CONTENT */
+    .main-wrapper {
+      max-width: 460px;
+      margin: 0 auto;
+      padding: 30px 16px 90px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-title-section {
+      text-align: center;
+      padding: 24px 0 20px;
+    }
+
+    .hero-kicker {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent-terracotta);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 58px;
+      line-height: 1.1;
+      color: var(--accent-terracotta);
+      margin: 6px 0 10px;
+    }
+
+    .hero-names span {
+      display: inline-block;
+      font-size: 38px;
+      color: var(--accent-rose);
+      margin: 0 6px;
+    }
+
+    .hero-sub {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Countdown Bar */
+    .countdown-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 12px;
+      margin: 20px 0 30px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(140, 64, 78, 0.04);
+    }
+
+    .countdown-box span {
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-terracotta);
+    }
+
+    .countdown-box small {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+    }
+
+    /* Day Pastel Cards */
+    .arched-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 36px 36px 22px 22px;
+      padding: 0 0 24px;
+      margin-bottom: 26px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(140, 64, 78, 0.06);
+    }
+
+    /* High-Resolution Full Aspect Ratio */
+    .card-banner-img {
+      width: 100%;
+      height: auto;
+      max-height: 480px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 36px 36px 0 0;
+      border-bottom: 2px solid var(--accent-rose);
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+
+    .card-body {
+      padding: 22px 20px 0;
+    }
+
+    .card-header-badge {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .day-marker {
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+    }
+
+    .event-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 21px;
+      color: var(--accent-terracotta);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .itinerary-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 13.5px;
+      align-items: baseline;
+    }
+
+    .itinerary-time {
+      min-width: 90px;
+      color: var(--accent-terracotta);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .itinerary-val {
+      color: var(--text-main);
+    }
+
+    .rose-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      background: #FFF5F3;
+      border: 1px solid var(--accent-rose);
+      color: var(--accent-terracotta);
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 11px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .rose-action-btn:hover {
+      background: var(--accent-rose);
+      color: #FFF;
+    }
+
+    /* Highlight Pill Box for Pheras */
+    .highlight-pill-box {
+      margin: 16px 0 10px;
+      background: linear-gradient(135deg, #FFF6F4 0%, #FEECE8 100%);
+      border: 1.5px dashed var(--accent-rose);
+      border-radius: 16px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+
+    .highlight-pill-box small {
+      display: block;
+      font-family: 'Cinzel', serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent-rose);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .highlight-pill-box b {
+      font-size: 19px;
+      color: var(--accent-terracotta);
+      display: block;
+      font-family: 'Cinzel', serif;
+    }
+
+    /* Sign-Off Card */
+    .signoff-card {
+      background: linear-gradient(135deg, #FFF9F7 0%, #FDF1ED 100%);
+      border: 1.5px solid var(--accent-rose);
+      border-radius: 24px;
+      padding: 30px 20px;
+      text-align: center;
+      margin-bottom: 26px;
+    }
+
+    .signoff-title {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      letter-spacing: 3px;
+      color: var(--accent-terracotta);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .signoff-heart {
+      font-size: 24px;
+      color: var(--accent-rose);
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* Hospitality RSVP Styling */
+    .attendance-toggle-group {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .attend-btn {
+      flex: 1;
+      padding: 12px 10px;
+      border-radius: 14px;
+      border: 1.5px solid var(--card-border);
+      background: #FFF9F7;
+      color: var(--text-muted);
+      font-family: 'Cinzel', serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .attend-btn.active {
+      background: var(--accent-terracotta);
+      border-color: var(--accent-terracotta);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(140, 64, 78, 0.25);
+    }
+
+    .guest-counter-wrap {
+      background: #FFF5F2;
+      border: 1px dashed var(--accent-rose);
+      border-radius: 14px;
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: opacity 0.3s ease;
+    }
+
+    .guest-counter-wrap span {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-terracotta);
+    }
+
+    .stepper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .step-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--accent-rose);
+      background: #FFFFFF;
+      color: var(--accent-terracotta);
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .step-btn:active {
+      transform: scale(0.92);
+    }
+
+    .step-num {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-terracotta);
+      min-width: 20px;
+      text-align: center;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+      background: #FFF9F7;
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 13.5px;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--accent-rose);
+      background: #FFFFFF;
+    }
+
+    .whatsapp-submit-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFF;
+      border: none;
+      padding: 14px;
+      border-radius: 30px;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+      transition: transform 0.2s;
+    }
+
+    .whatsapp-submit-btn:active {
+      transform: scale(0.97);
+    }
+
+    .blessing-item {
+      background: #FFF7F5;
+      border: 1px solid var(--card-border);
+      padding: 12px 16px;
+      border-radius: 14px;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+
+    .blessing-name {
+      color: var(--accent-terracotta);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Instrumental Audio (Traditional Festive Acoustic) -->
+  <audio id="weddingAudio" loop preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3" type="audio/mp3">
+  </audio>
+
+  <!-- Floating Petals & Confetti Canvases -->
+  <canvas id="petals-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- 1. TOUCH-TO-OPEN CURTAIN -->
+  <div id="welcome-curtain">
+    <div class="curtain-arch">
+      <div class="monogram-crest">K&J</div>
+      <span class="pill-tag">Exclusive Invitation</span>
+      <h2 id="guestNameDisplay" class="splash-guest">Dear Guest</h2>
+      <p style="font-size: 13px; color: var(--text-muted); padding: 0 6px;">
+        With the love and blessings of our families, Kajal & Jagjyot invite you to celebrate their big day.
+      </p>
+
+      <button class="unfold-btn" onclick="unveilInvitation()">
+        Unfold Our Story ✨
+      </button>
+      <p style="font-size: 10px; margin-top: 14px; color: var(--accent-terracotta); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;">
+        Tap to celebrate with us
+      </p>
+    </div>
+  </div>
+
+  <!-- 2. STICKY TOP DOCK -->
+  <div class="top-dock">
+    <div class="dock-glass">
+      <span class="dock-date">10 • 11 FEB</span>
+      <nav class="dock-nav">
+        <a href="#itinerary">Schedule</a>
+        <a href="#pheras">Pheras</a>
+        <a href="#rsvp">RSVP</a>
+      </nav>
+      <button class="audio-pill" onclick="toggleAudio()" id="audioBtn">🎵 Music</button>
+    </div>
+  </div>
+
+  <!-- 3. MAIN CONTENT -->
+  <div class="main-wrapper">
+    
+    <div class="hero-title-section">
+      <p class="hero-kicker">WITH THE LOVE AND BLESSINGS OF THEIR FAMILIES</p>
+      <h1 class="hero-names">Kajal <span>&</span> Jagjyot</h1>
+      <p class="hero-sub">invite you to celebrate their big day</p>
+      <p style="font-size: 12px; letter-spacing: 2px; color: var(--accent-terracotta); text-transform: uppercase; margin-top: 10px; font-weight: 700;">
+        10th & 11th February • Ankleshwar
+      </p>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-bar">
+      <div class="countdown-box"><span id="days">00</span><small>Days</small></div>
+      <div class="countdown-box"><span id="hours">00</span><small>Hours</small></div>
+      <div class="countdown-box"><span id="mins">00</span><small>Mins</small></div>
+      <div class="countdown-box"><span id="secs">00</span><small>Secs</small></div>
+    </div>
+
+    <div id="itinerary"></div>
+
+    <!-- CHAPTER 01: SANGEET -->
+    <div class="arched-card">
+      <img src="https://i.postimg.cc/y1GHjvYk/sangeet.png" alt="Bollywood Sangeet Night" class="card-banner-img" />
+      <div class="card-body">
+        <div class="card-header-badge">
+          <span class="day-marker">Chapter 01</span>
+          <span class="pill-tag" style="margin: 0;">Warm Up</span>
+        </div>
+        <h2 class="event-heading">Ring Ceremony & Sangeet Night</h2>
+        
+        <div class="itinerary-row">
+          <span class="itinerary-time">🗓️ Date</span>
+          <span class="itinerary-val"><b>Tuesday, 10th February</b></span>
+        </div>
+        <div class="itinerary-row">
+          <span class="itinerary-time">⏰ Time</span>
+          <span class="itinerary-val"><b>7:00 PM Onwards</b></span>
+        </div>
+        <div class="itinerary-row">
+          <span class="itinerary-time">🎬 Theme</span>
+          <span class="itinerary-val"><b>Bollywood Night 💃🕺</b></span>
+        </div>
+        <div class="itinerary-row">
+          <span class="itinerary-time">📍 Venue</span>
+          <span class="itinerary-val">Lords Plaza, Ankleshwar</span>
+        </div>
+
+        <a class="rose-action-btn" href="https://share.google/BEtj7Gmpfw3gHA3YU" target="_blank">
+          📍 Directions to Lords Plaza →
+        </a>
+      </div>
+    </div>
+
+    <!-- CHAPTER 02: MORNING (ANAND KARAJ) -->
+    <div class="arched-card">
+      <img src="https://i.postimg.cc/jt7sg07B/gurudwara.png" alt="Anand Karaj Gurudwara" class="card-banner-img" />
+      <div class="card-body">
+        <div class="card-header-badge">
+          <span class="day-marker">Chapter 02 • Morning</span>
+          <span class="pill-tag" style="margin: 0;">Sacred Union</span>
+        </div>
+        <h2 class="event-heading">Anand Karaj</h2>
+
+        <div class="itinerary-row">
+          <span class="itinerary-time">🎺 09:00 AM</span>
+          <span class="itinerary-val"><b>Baarat Procession</b></span>
+        </div>
+        <div class="itinerary-row">
+          <span class="itinerary-time">🌸 10:00 AM</span>
+          <span class="itinerary-val"><b>Anand Karaj Ceremony</b></span>
+        </div>
+        <div class="itinerary-row">
+          <span class="itinerary-time">📍 Venue</span>
+          <span class="itinerary-val">Gurudwara Shri Guru Singh Sabha</span>
+        </div>
+
+        <a class="rose-action-btn" href="https://maps.app.goo.gl/KpiqWCxK4D7Du5Nd6?g_st=aw" target="_blank">
+          📍 Directions to Gurudwara →
+        </a>
+      </div>
+    </div>
+
+    <!-- CHAPTER 02: AFTERNOON (VARMALA, LUNCH & PHERAS) -->
+    <div class="arched-card" id="pheras">
+      <img src="https://i.postimg.cc/BSz0pMQK/phera.png" alt="Varmala and Pheras" class="card-banner-img" />
+      <div class="card-body">
+        <div class="card-header-badge">
+          <span class="day-marker">Chapter 02 • Afternoon</span>
+          <span class="pill-tag" style="margin: 0;">Vivah Sanskar</span>
+        </div>
+        <h2 class="event-heading">Varmala, Feast & Pheras</h2>
+
+        <div class="itinerary-row">
+          <span class="itinerary-time">🌺 12:00 PM</span>
+          <span class="itinerary-val"><b>Varmala Ceremony</b></span>
+        </div>
+        <div class="itinerary-row">
+          <span class="itinerary-time">🍽️ 01:00 PM</span>
+          <span class="itinerary-val"><b>Celebratory Feast (Lunch)</b></span>
+        </div>
+        
+        <div class="highlight-pill-box">
+          <small>Auspicious Timing</small>
+          <b>Sacred Pheras • 3:00 PM Onwards</b>
+        </div>
+
+        <div class="itinerary-row" style="margin-top: 14px;">
+          <span class="itinerary-time">📍 Venue</span>
+          <span class="itinerary-val">Lords Plaza, Ankleshwar</span>
+        </div>
+
+        <a class="rose-action-btn" href="https://share.google/BEtj7Gmpfw3gHA3YU" target="_blank" style="margin-top: 16px;">
+          📍 Directions to Lords Plaza →
+        </a>
+      </div>
+    </div>
+
+    <!-- WARM SIGN-OFF CARD -->
+    <div class="signoff-card">
+      <h3 class="signoff-title">CAN’T WAIT TO SEE YOU</h3>
+      <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 6px;">Thank you for being part of our story.</p>
+      <p style="font-size: 14px; font-weight: 600; color: var(--accent-terracotta);">We’ll see you at the wedding! ♡</p>
+      <span class="signoff-heart">🌸</span>
+    </div>
+
+    <!-- RSVP & BLESSINGS (Connected to WhatsApp) -->
+    <div class="arched-card" id="rsvp" style="padding: 24px 20px;">
+      <div class="card-header-badge">
+        <span class="day-marker">Hospitality</span>
+      </div>
+      <h2 class="event-heading" style="text-align: center;">Will You Join Us?</h2>
+      <p style="font-size: 13px; text-align: center; color: var(--text-muted); margin-bottom: 18px;">
+        Kindly confirm your presence so we can prepare for your hospitality in Ankleshwar.
+      </p>
+
+      <form onsubmit="handleWhatsAppRSVP(event)">
+        <!-- Attending Yes/No Toggle -->
+        <div class="attendance-toggle-group">
+          <button type="button" class="attend-btn active" id="btnYes" onclick="setAttendance('Yes')">✨ Attending: Yes</button>
+          <button type="button" class="attend-btn" id="btnNo" onclick="setAttendance('No')">🌸 Regretfully No</button>
+        </div>
+
+        <!-- Number of Guests Stepper -->
+        <div class="guest-counter-wrap" id="guestCountRow">
+          <span>Number of Guests:</span>
+          <div class="stepper">
+            <button type="button" class="step-btn" onclick="changeGuestCount(-1)">−</button>
+            <span class="step-num" id="guestCountDisplay">1</span>
+            <button type="button" class="step-btn" onclick="changeGuestCount(1)">+</button>
+          </div>
+        </div>
+
+        <input type="text" id="rsvpGuestName" placeholder="Your Name / Family Name" required />
+        <textarea id="rsvpNote" rows="2" placeholder="Leave a blessing or love for Kajal & Jagjyot..."></textarea>
+        
+        <button type="submit" class="whatsapp-submit-btn">
+          <span>Send Confirmation via WhatsApp</span> 💬
+        </button>
+      </form>
+
+      <!-- Clean Dynamic Wishes Wall -->
+      <div id="wishesWall" style="margin-top: 20px;"></div>
+    </div>
+
+  </div>
+
+  <script>
+    // 1. Personalized Link Handler (?invite=GuestName)
+    var urlParams = new URLSearchParams(window.location.search);
+    var guestParam = urlParams.get('invite') || urlParams.get('to');
+    if (guestParam) {
+      var decoded = decodeURIComponent(guestParam);
+      document.getElementById('guestNameDisplay').innerText = decoded;
+      document.getElementById('rsvpGuestName').value = decoded;
+    }
+
+    // 2. Unveil Curtain, Music, and Confetti
+    var audio = document.getElementById('weddingAudio');
+    var isAudioPlaying = false;
+
+    function unveilInvitation() {
+      fireBuiltInConfetti();
+      playMusic();
+
+      var curtain = document.getElementById('welcome-curtain');
+      curtain.style.opacity = '0';
+      curtain.style.transform = 'translateY(-100%)';
+
+      setTimeout(function() {
+        curtain.style.display = 'none';
+      }, 900);
+    }
+
+    function playMusic() {
+      if (audio) {
+        audio.play().then(function() {
+          isAudioPlaying = true;
+          document.getElementById('audioBtn').innerText = '🎵 Playing';
+        }).catch(function() {
+          isAudioPlaying = false;
+          document.getElementById('audioBtn').innerText = '🔇 Mute';
+        });
+      }
+    }
+
+    function toggleAudio() {
+      if (!audio) return;
+      if (isAudioPlaying) {
+        audio.pause();
+        isAudioPlaying = false;
+        document.getElementById('audioBtn').innerText = '🔇 Mute';
+      } else {
+        audio.play();
+        isAudioPlaying = true;
+        document.getElementById('audioBtn').innerText = '🎵 Playing';
+      }
+    }
+
+    // 3. Built-in Vanilla JS Confetti Engine
+    var cCanvas = document.getElementById('confetti-canvas');
+    var cCtx = cCanvas.getContext('2d');
+    var confettiParticles = [];
+
+    function resizeConfetti() {
+      cCanvas.width = window.innerWidth;
+      cCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeConfetti);
+    resizeConfetti();
+
+    function fireBuiltInConfetti() {
+      var colors = ['#C57D87', '#C99A45', '#FFF0EC', '#8C404E', '#E6A8B2'];
+      for (var i = 0; i < 90; i++) {
+        confettiParticles.push({
+          x: window.innerWidth / 2,
+          y: window.innerHeight / 2,
+          w: Math.random() * 8 + 4,
+          h: Math.random() * 6 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.8) * 18,
+          rot: Math.random() * 360,
+          rotSpeed: (Math.random() - 0.5) * 10,
+          opacity: 1
+        });
+      }
+    }
+
+    function renderConfetti() {
+      cCtx.clearRect(0, 0, cCanvas.width, cCanvas.height);
+      for (var i = confettiParticles.length - 1; i >= 0; i--) {
+        var p = confettiParticles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35;
+        p.rot += p.rotSpeed;
+        p.opacity -= 0.008;
+
+        if (p.opacity <= 0 || p.y > window.innerHeight) {
+          confettiParticles.splice(i, 1);
+          continue;
+        }
+
+        cCtx.save();
+        cCtx.translate(p.x, p.y);
+        cCtx.rotate((p.rot * Math.PI) / 180);
+        cCtx.globalAlpha = p.opacity;
+        cCtx.fillStyle = p.color;
+        cCtx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        cCtx.restore();
+      }
+      requestAnimationFrame(renderConfetti);
+    }
+    renderConfetti();
+
+    // 4. Live Countdown
+    function updateCountdown() {
+      var target = new Date("Feb 10, 2027 19:00:00").getTime();
+      var now = new Date().getTime();
+      var diff = target - now;
+
+      if (diff > 0) {
+        document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerText = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        document.getElementById('mins').innerText = Math.floor((diff / (1000 * 60)) % 60);
+        document.getElementById('secs').innerText = Math.floor((diff / (1000 * 60)) % 60);
+      }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 5. Attendance & Number of Guests Stepper
+    var currentAttendance = 'Yes';
+    var guestCount = 1;
+
+    function setAttendance(val) {
+      currentAttendance = val;
+      var btnYes = document.getElementById('btnYes');
+      var btnNo = document.getElementById('btnNo');
+      var row = document.getElementById('guestCountRow');
+
+      if (val === 'Yes') {
+        btnYes.classList.add('active');
+        btnNo.classList.remove('active');
+        row.style.display = 'flex';
+      } else {
+        btnNo.classList.add('active');
+        btnYes.classList.remove('active');
+        row.style.display = 'none';
+      }
+    }
+
+    function changeGuestCount(delta) {
+      guestCount += delta;
+      if (guestCount < 1) guestCount = 1;
+      if (guestCount > 10) guestCount = 10;
+      document.getElementById('guestCountDisplay').innerText = guestCount;
+    }
+
+    // 6. Send RSVP Directly to WhatsApp (+91 98795 88446)
+    function handleWhatsAppRSVP(e) {
+      e.preventDefault();
+      fireBuiltInConfetti();
+
+      var name = document.getElementById('rsvpGuestName').value.trim();
+      var note = document.getElementById('rsvpNote').value.trim();
+      if (!name) return;
+
+      // Update on-screen guest wall
+      var wall = document.getElementById('wishesWall');
+      var item = document.createElement('div');
+      item.className = 'blessing-item';
+      var attendLabel = currentAttendance === 'Yes' ? 'Attending: Yes (' + guestCount + ' Guests)' : 'Regretfully Cannot Attend';
+      item.innerHTML = '<div class="blessing-name">' + name + ' • <span style="font-size:11px; color:var(--accent-rose);">' + attendLabel + '</span></div><div style="color: var(--text-muted);">' + (note || "Wishing Kajal & Jagjyot a lifetime of love and joy! 🌸") + '</div>';
+      wall.prepend(item);
+
+      // Compose WhatsApp Message
+      var targetPhone = "919879588446";
+      var msg = "🌸 *Wedding RSVP for Kajal & Jagjyot* 🌸\n\n" +
+                "👤 *Guest Name:* " + name + "\n" +
+                "✨ *Attending:* " + (currentAttendance === 'Yes' ? "Yes (" + guestCount + " Guests)" : "Regretfully No") + "\n";
+      
+      if (note) {
+        msg += "💌 *Warm Wishes:* " + note + "\n";
+      }
+
+      var encoded = encodeURIComponent(msg);
+      var waUrl = "https://api.whatsapp.com/send?phone=" + targetPhone + "&text=" + encoded;
+
+      setTimeout(function() {
+        window.open(waUrl, '_blank');
+      }, 500);
+
+      document.getElementById('rsvpNote').value = '';
+    }
+
+    // 7. Floating Pastel Rose Petals Canvas
+    var pCanvas = document.getElementById('petals-canvas');
+    var pCtx = pCanvas.getContext('2d');
+    var petals = [];
+
+    function resizePetals() {
+      pCanvas.width = window.innerWidth;
+      pCanvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizePetals);
+    resizePetals();
+
+    for (var i = 0; i < 24; i++) {
+      petals.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        size: Math.random() * 8 + 5,
+        speedY: Math.random() * 0.7 + 0.3,
+        speedX: Math.random() * 0.5 - 0.25,
+        rot: Math.random() * 360,
+        spin: Math.random() * 1.5 - 0.75
+      });
+    }
+
+    function renderPetals() {
+      pCtx.clearRect(0, 0, pCanvas.width, pCanvas.height);
+      pCtx.fillStyle = 'rgba(230, 168, 178, 0.45)';
+
+      petals.forEach(function(p) {
+        pCtx.save();
+        pCtx.translate(p.x, p.y);
+        pCtx.rotate((p.rot * Math.PI) / 180);
+        pCtx.beginPath();
+        pCtx.ellipse(0, 0, p.size, p.size * 0.55, 0, 0, Math.PI * 2);
+        pCtx.fill();
+        pCtx.restore();
+
+        p.y += p.speedY;
+        p.x += p.speedX;
+        p.rot += p.spin;
+
+        if (p.y > window.innerHeight) p.y = -10;
+        if (p.x > window.innerWidth) p.x = 0;
+        if (p.x < 0) p.x = window.innerWidth;
+      });
+      requestAnimationFrame(renderPetals);
+    }
+    renderPetals();
+  </script>
+</body>
+</html>
