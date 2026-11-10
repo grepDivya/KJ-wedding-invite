@@ -73,13 +73,12 @@
       border: 1.5px solid var(--accent-rose);
       border-radius: 140px 140px 30px 30px;
       padding: 46px 24px 34px;
-      max-width: 380px;
+      max-width: 390px;
       width: 100%;
       text-align: center;
       box-shadow: 0 20px 50px rgba(140, 64, 78, 0.12), 0 0 30px rgba(197, 125, 135, 0.15);
     }
 
-    /* Refined Oval Monogram Crest */
     .monogram-crest {
       width: 84px;
       height: 56px;
@@ -110,7 +109,7 @@
       background: #FFF2F0;
       padding: 4px 14px;
       border-radius: 30px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       font-weight: 700;
     }
 
@@ -226,11 +225,28 @@
 
     .hero-kicker {
       font-family: 'Cinzel', serif;
-      font-size: 11px;
+      font-size: 10.5px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--accent-terracotta);
       font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .parents-host {
+      font-family: 'Cinzel', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+
+    .parents-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
       margin-bottom: 8px;
     }
 
@@ -239,7 +255,7 @@
       font-size: 58px;
       line-height: 1.1;
       color: var(--accent-terracotta);
-      margin: 6px 0 10px;
+      margin: 4px 0 8px;
     }
 
     .hero-names span {
@@ -247,12 +263,6 @@
       font-size: 38px;
       color: var(--accent-rose);
       margin: 0 6px;
-    }
-
-    .hero-sub {
-      font-size: 13.5px;
-      color: var(--text-muted);
-      font-style: italic;
     }
 
     /* Countdown Bar */
@@ -295,7 +305,6 @@
       box-shadow: 0 12px 32px rgba(140, 64, 78, 0.06);
     }
 
-    /* High-Resolution Full Aspect Ratio */
     .card-banner-img {
       width: 100%;
       height: auto;
@@ -433,7 +442,7 @@
       display: block;
     }
 
-    /* Hospitality RSVP Styling */
+    /* Hospitality RSVP */
     .attendance-toggle-group {
       display: flex;
       gap: 10px;
@@ -575,9 +584,9 @@
 </head>
 <body>
 
-  <!-- Background Instrumental Audio (Traditional Festive Acoustic) -->
+  <!-- Background Wedding Music: Shadi Asanjhe Ghar Me Aa -->
   <audio id="weddingAudio" loop preload="auto">
-    <source src="https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3" type="audio/mp3">
+    <source src="music.mp3" type="audio/mp3">
   </audio>
 
   <!-- Floating Petals & Confetti Canvases -->
@@ -590,8 +599,8 @@
       <div class="monogram-crest">K&J</div>
       <span class="pill-tag">Exclusive Invitation</span>
       <h2 id="guestNameDisplay" class="splash-guest">Dear Guest</h2>
-      <p style="font-size: 13px; color: var(--text-muted); padding: 0 6px;">
-        With the love and blessings of our families, Kajal & Jagjyot invite you to celebrate their big day.
+      <p style="font-size: 12.5px; color: var(--text-muted); padding: 0 4px; line-height: 1.5;">
+        Anil & Monica Madnani warmly invite you to celebrate the wedding celebrations of their beloved daughter <b>Kajal</b> with <b>Jagjyot</b>.
       </p>
 
       <button class="unfold-btn" onclick="unveilInvitation()">
@@ -606,7 +615,7 @@
   <!-- 2. STICKY TOP DOCK -->
   <div class="top-dock">
     <div class="dock-glass">
-      <span class="dock-date">10 • 11 FEB</span>
+      <span class="dock-date">10 • 11 FEB 2027</span>
       <nav class="dock-nav">
         <a href="#itinerary">Schedule</a>
         <a href="#pheras">Pheras</a>
@@ -620,11 +629,12 @@
   <div class="main-wrapper">
     
     <div class="hero-title-section">
-      <p class="hero-kicker">WITH THE LOVE AND BLESSINGS OF THEIR FAMILIES</p>
+      <p class="hero-kicker">WITH THE LOVE AND BLESSINGS OF</p>
+      <p class="parents-host">Anil & Monica Madnani</p>
+      <p class="parents-sub">cordially invite you to celebrate the wedding of their beloved daughter</p>
       <h1 class="hero-names">Kajal <span>&</span> Jagjyot</h1>
-      <p class="hero-sub">invite you to celebrate their big day</p>
-      <p style="font-size: 12px; letter-spacing: 2px; color: var(--accent-terracotta); text-transform: uppercase; margin-top: 10px; font-weight: 700;">
-        10th & 11th February • Ankleshwar
+      <p style="font-size: 12px; letter-spacing: 2px; color: var(--accent-terracotta); text-transform: uppercase; margin-top: 8px; font-weight: 700;">
+        10th & 11th February 2027 • Ankleshwar
       </p>
     </div>
 
@@ -638,7 +648,7 @@
 
     <div id="itinerary"></div>
 
-    <!-- CHAPTER 01: SANGEET -->
+    <!-- CHAPTER 01: SANGEET (Wednesday, 10th Feb 2027) -->
     <div class="arched-card">
       <img src="https://i.postimg.cc/y1GHjvYk/sangeet.png" alt="Bollywood Sangeet Night" class="card-banner-img" />
       <div class="card-body">
@@ -650,7 +660,7 @@
         
         <div class="itinerary-row">
           <span class="itinerary-time">🗓️ Date</span>
-          <span class="itinerary-val"><b>Tuesday, 10th February</b></span>
+          <span class="itinerary-val"><b>Wednesday, 10th February 2027</b></span>
         </div>
         <div class="itinerary-row">
           <span class="itinerary-time">⏰ Time</span>
@@ -665,13 +675,13 @@
           <span class="itinerary-val">Lords Plaza, Ankleshwar</span>
         </div>
 
-        <a class="rose-action-btn" href="https://share.google/BEtj7Gmpfw3gHA3YU" target="_blank">
+        <a class="rose-action-btn" href="https://maps.app.goo.gl/QPBBJ9GqugavogS7A?g_st=aw" target="_blank">
           📍 Directions to Lords Plaza →
         </a>
       </div>
     </div>
 
-    <!-- CHAPTER 02: MORNING (ANAND KARAJ) -->
+    <!-- CHAPTER 02: MORNING (ANAND KARAJ - Thursday, 11th Feb 2027) -->
     <div class="arched-card">
       <img src="https://i.postimg.cc/jt7sg07B/gurudwara.png" alt="Anand Karaj Gurudwara" class="card-banner-img" />
       <div class="card-body">
@@ -682,6 +692,10 @@
         <h2 class="event-heading">Anand Karaj</h2>
 
         <div class="itinerary-row">
+          <span class="itinerary-time">🗓️ Date</span>
+          <span class="itinerary-val"><b>Thursday, 11th February 2027</b></span>
+        </div>
+        <div class="itinerary-row">
           <span class="itinerary-time">🎺 09:00 AM</span>
           <span class="itinerary-val"><b>Baarat Procession</b></span>
         </div>
@@ -691,16 +705,16 @@
         </div>
         <div class="itinerary-row">
           <span class="itinerary-time">📍 Venue</span>
-          <span class="itinerary-val">Gurudwara Shri Guru Singh Sabha</span>
+          <span class="itinerary-val">Gurudwara Shri Guru Singh Sabha, Ankleshwar</span>
         </div>
 
         <a class="rose-action-btn" href="https://maps.app.goo.gl/KpiqWCxK4D7Du5Nd6?g_st=aw" target="_blank">
-          📍 Directions to Gurudwara →
+          📍 Directions to Gurudwara Ankleshwar →
         </a>
       </div>
     </div>
 
-    <!-- CHAPTER 02: AFTERNOON (VARMALA, LUNCH & PHERAS) -->
+    <!-- CHAPTER 02: AFTERNOON (VARMALA, LUNCH & PHERAS - Thursday, 11th Feb 2027) -->
     <div class="arched-card" id="pheras">
       <img src="https://i.postimg.cc/BSz0pMQK/phera.png" alt="Varmala and Pheras" class="card-banner-img" />
       <div class="card-body">
@@ -710,6 +724,10 @@
         </div>
         <h2 class="event-heading">Varmala, Feast & Pheras</h2>
 
+        <div class="itinerary-row">
+          <span class="itinerary-time">🗓️ Date</span>
+          <span class="itinerary-val"><b>Thursday, 11th February 2027</b></span>
+        </div>
         <div class="itinerary-row">
           <span class="itinerary-time">🌺 12:00 PM</span>
           <span class="itinerary-val"><b>Varmala Ceremony</b></span>
@@ -729,7 +747,7 @@
           <span class="itinerary-val">Lords Plaza, Ankleshwar</span>
         </div>
 
-        <a class="rose-action-btn" href="https://share.google/BEtj7Gmpfw3gHA3YU" target="_blank" style="margin-top: 16px;">
+        <a class="rose-action-btn" href="https://maps.app.goo.gl/QPBBJ9GqugavogS7A?g_st=aw" target="_blank" style="margin-top: 16px;">
           📍 Directions to Lords Plaza →
         </a>
       </div>
@@ -743,13 +761,12 @@
       <span class="signoff-heart">🌸</span>
     </div>
 
-    <!-- RSVP & BLESSINGS (Connected to WhatsApp) -->
+    <!-- RSVP SECTION (Cleaned - "Will you join us" removed) -->
     <div class="arched-card" id="rsvp" style="padding: 24px 20px;">
       <div class="card-header-badge">
         <span class="day-marker">Hospitality</span>
       </div>
-      <h2 class="event-heading" style="text-align: center;">Will You Join Us?</h2>
-      <p style="font-size: 13px; text-align: center; color: var(--text-muted); margin-bottom: 18px;">
+      <p style="font-size: 13.5px; text-align: center; color: var(--text-main); font-weight: 500; margin-bottom: 18px; line-height: 1.5;">
         Kindly confirm your presence so we can prepare for your hospitality in Ankleshwar.
       </p>
 
@@ -778,7 +795,6 @@
         </button>
       </form>
 
-      <!-- Clean Dynamic Wishes Wall -->
       <div id="wishesWall" style="margin-top: 20px;"></div>
     </div>
 
@@ -893,7 +909,7 @@
     }
     renderConfetti();
 
-    // 4. Live Countdown
+    // 4. Live Countdown (Wednesday, 10th February 2027)
     function updateCountdown() {
       var target = new Date("Feb 10, 2027 19:00:00").getTime();
       var now = new Date().getTime();
